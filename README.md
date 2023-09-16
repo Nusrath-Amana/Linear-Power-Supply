@@ -70,7 +70,7 @@ Thermal protection is an important consideration in linear power supplies to pro
 
 ## PCB designs
 ### PCB design of regulation circuit
-![pcb1](https://drive.google.com/file/d/1Z0rCDiLmgfF0m9XPnnrNTQmoRk6udpAi/view?usp=drive_link)
+![pcb1](https://github.com/Nusrath-Amana/Linear-Power-Supply/blob/main/images/regu_pcb.png)
 
 ### PCB design of current limiting circuit
 ![pcb1](https://drive.google.com/file/d/1suQQtWxFXdipy_lBdwyTpyrk0evnSqPi/view?usp=drive_link)
