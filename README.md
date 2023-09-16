@@ -31,7 +31,7 @@ The second stage is smoothing which reduces the ripple voltage in the output vol
 The voltage regulation process is a crucial aspect of a linear power supply. To achieve a constant output voltage, a virtual short circuit is utilized in this design. Virtual short circuit refers to 
 configuration in a differential amplifier such as op-amp where the inverting and non-invertinginput have almost same voltage. Initially 15v voltage is regulated and 10V is supplied to one of the op-amp terminals,ensuring a constant output voltage of 10V. The op amp is supplied with 15V and 0V to ensure that positive voltage is fed back to the Darlington. In order to further regulate the voltage to the desired level of 12V, a Zener diode is implemented.
 
-! schematic https://drive.google.com/file/d/1Z0rCDiLmgfF0m9XPnnrNTQmoRk6udpAi/view?usp=drive_link
+! [schematic] (https://drive.google.com/file/d/1Z0rCDiLmgfF0m9XPnnrNTQmoRk6udpAi/view?usp=drive_link)
 
 #### Current regulation
 TIP142 Darlington pair is utilized to control the current. The op-amp provides feedback to the Darlington pair and by using that control the current. Here, the Darlington pair work as a current controlling gate.
