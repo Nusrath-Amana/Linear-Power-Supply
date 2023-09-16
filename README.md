@@ -31,7 +31,7 @@ The second stage is smoothing which reduces the ripple voltage in the output vol
 The voltage regulation process is a crucial aspect of a linear power supply. To achieve a constant output voltage, a virtual short circuit is utilized in this design. Virtual short circuit refers to 
 configuration in a differential amplifier such as op-amp where the inverting and non-invertinginput have almost same voltage. Initially 15v voltage is regulated and 10V is supplied to one of the op-amp terminals,ensuring a constant output voltage of 10V. The op amp is supplied with 15V and 0V to ensure that positive voltage is fed back to the Darlington. In order to further regulate the voltage to the desired level of 12V, a Zener diode is implemented.
 
-![schematic](https://drive.google.com/file/d/1Z0rCDiLmgfF0m9XPnnrNTQmoRk6udpAi/view?usp=drive_link)
+![schematic](https://drive.google.com/file/d/1H9eqLkDRiNxxEVIXPzmkebiY-CgfNF9O/view?usp=drive_link)
 
 #### Current regulation
 TIP142 Darlington pair is utilized to control the current. The op-amp provides feedback to the Darlington pair and by using that control the current. Here, the Darlington pair work as a current controlling gate.
@@ -52,6 +52,7 @@ However, once the relay is no longer activated, the flowing current decreases an
 
 To address this, a reset switch (S1) (normally closed push button) with a resistor (R7) is connected between the normally closed contact of the relay K4 and the base of Q2. When current exceeds 10A, the relay turns off, but since normally closed contact is closed, base of Q2 is still pulled to supply voltage even though comparator output is low. As a result, relay remains off until reset button is pushed which interrupts base current of Q2 allowing relay to be activated once again.
 
+![schematic](https://drive.google.com/file/d/1p8xIknrQs2R7MCSK8c3K41NP9bW9qKgO/view?usp=drive_link)
 
 ### Protection
 
@@ -67,7 +68,12 @@ A 12A 250V Fast Blow Glass Fuse (AC fuse) is utilized to implement overcurrent p
 
 Thermal protection is an important consideration in linear power supplies to protect against overheating and potential damage to the circuit. In this design, Heatsinks, Fans and ventilation, and proper PCB design are utilized to implement thermal protection.
 
+## PCB designs
+### PCB design of regulation circuit
+![pcb1](https://drive.google.com/file/d/1Z0rCDiLmgfF0m9XPnnrNTQmoRk6udpAi/view?usp=drive_link)
 
+### PCB design of current limiting circuit
+![pcb1](https://drive.google.com/file/d/1suQQtWxFXdipy_lBdwyTpyrk0evnSqPi/view?usp=drive_link)
 
 ## Conclusion
 
