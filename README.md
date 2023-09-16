@@ -35,13 +35,36 @@ configuration in a differential amplifier such as op-amp where the inverting and
 TIP142 Darlington pair is utilized to control the current. The op-amp provides feedback to the Darlington pair and by using that control the current. Here, the Darlington pair work as a current controlling gate.
 
 ### Current Limiting
-This power supply is required to limit the maximum current up to 10A. When the current through a circuit exceeds its rated current, it may cause overheating, and component failure.Thus,implementinganovercurrentprotection circuit, prevent damage to the device and ensures proper functionality. There are many techniques to implement current limiting circuit. The use of a relay is 
-a common practice. In such circuits, changeover contacts are utilized to connect the supply voltage when the current is lower than the rated current and to open the contact when the current exceeded the rated 
-current. Two spdt relays are utilized in this design. Since normally open contact points are used, current must be allowed to flow through the coil so that the contacts remain closed. To address this, an NPN transistor (Q1) is added in series with the coil, along with a 1k resistor (R6)between the supply voltage and the base of the transistor. When voltage is applied to the circuit, current flows through the base-emitter path of the transistor and causes it to operate in the saturated region. As a result, the coil of both relays areenergized, and the contact is closed. A flyback diode is added to prevent the occurrence of huge voltage spikes when the relay coil is deenergized. A green LED is used to indicate the absence of over current problem. 
+
+This power supply is required to limit the maximum current up to 10A. When the current through a circuit exceeds its rated current, it may cause overheating, and component failure. Thus, implementing an overcurrent protection circuit, prevent damage to the device and ensures proper functionality.
+
+The design uses two SPDT relays. An NPN transistor (Q1) is added in series with the coil, along with a 1k resistor (R6) between the supply voltage and the base of the transistor. A flyback diode is added to prevent the occurrence of huge voltage spikes when the relay coil is de-energized. A green LED is used to indicate the absence of over current problem.
+
+To deactivate the coil when an over-current issue occurs, an NPN transistor (Q2) is added to the base of the first transistor. If an error signal is applied to the base of the second transistor (Q2), the base current of the first transistor (Q1) will flow through the second transistor. This causes the coil to deactivate, the LED to turn off, and the contacts to open.
+
+To detect current exceeding 10A a low-value power resistor (Res2) is added between the supply voltage and the first relay contact. This creates a voltage drop proportional to the flowing current, which is amplified using an operational amplifier (op-amp U4A) in differential amplification configuration.
+
+The amplified signal is connected to the non-inverting input of the second op-amp (U4B), whose inverting input is directly connected to the potentiometer, which acts as a variable reference voltage. Since the op-amp functions as a comparator, its output is pulled high when the current sense voltage is higher than the reference voltage. This triggers outputs that are connected to the base of the second transistor (Q2) through a resistor (R5), thus turning off the relay when the current exceeds 10A.
+
+However, once the relay is no longer activated, the flowing current decreases and turns off the output of the comparator, allowing the relay to be activated once again. Since over-current will flow once again when the relay is activated, the comparator triggers once again, and the cycle repeats repeatedly.
+
+To address this, a reset switch (S1) (normally closed push button) with a resistor (R7) is connected between the normally closed contact of the relay K4 and the base of Q2. When current exceeds 10A, the relay turns off, but since normally closed contact is closed, base of Q2 is still pulled to supply voltage even though comparator output is low. As a result, relay remains off until reset button is pushed which interrupts base current of Q2 allowing relay to be activated once again.
+
 
 ### Protection
 
-The final stage is protection which includes circuit protection mechanisms.
+#### Short Circuit Protection
+
+The current limiting circuit discussed in section 2.4 is used as short circuit protection. When a short circuit occurs, the current limiting circuit will be activated.
+
+#### Overcurrent Protection
+
+A 12A 250V Fast Blow Glass Fuse (AC fuse) is utilized to implement overcurrent protection. The maximum current allows through the fuse is 12A. 
+
+#### Thermal Protection
+
+Thermal protection is an important consideration in linear power supplies to protect against overheating and potential damage to the circuit. In this design, Heatsinks, Fans and ventilation, and proper PCB design are utilized to implement thermal protection.
+
 
 ## Conclusion
 
