@@ -12,7 +12,6 @@ Power supplies are used to drive various loads under constant voltage/current co
 
 - 10V Linear power supply with a maximum current rating of 10A
 - Should include circuit protection mechanisms.
-- Power supply efficiency should be considered when developing the circuit.
 
 ## Methodology
 
