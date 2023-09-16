@@ -52,7 +52,7 @@ However, once the relay is no longer activated, the flowing current decreases an
 
 To address this, a reset switch (S1) (normally closed push button) with a resistor (R7) is connected between the normally closed contact of the relay K4 and the base of Q2. When current exceeds 10A, the relay turns off, but since normally closed contact is closed, base of Q2 is still pulled to supply voltage even though comparator output is low. As a result, relay remains off until reset button is pushed which interrupts base current of Q2 allowing relay to be activated once again.
 
-![schematic](https://drive.google.com/file/d/1H9eqLkDRiNxxEVIXPzmkebiY-CgfNF9O/view?usp=drive_link)
+![schematic](https://github.com/Nusrath-Amana/Linear-Power-Supply/blob/main/PCB%20and%20schematics/images/short%20cct_sch.png)
 
 ### Protection
 
